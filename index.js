@@ -5,6 +5,11 @@ const dotenv = require('dotenv').config()
 const ShortUrl = require('./models/shorturls')
 
 mongoose.connect(process.env.MONGO_URI).then(()=> {
+
+  
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, ()=> console.log('listening on port 3000'))
 console.log('Db conneced')}).catch(error => console.log(error))
 
 
@@ -49,7 +54,3 @@ app.get('/:shorturl', async(req,res)=>{
 })
 
 
-
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, ()=> console.log('listening on port 3000'))
